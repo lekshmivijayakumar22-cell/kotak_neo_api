@@ -81,7 +81,6 @@ class NeoAPI:
         self.NeoWebSocket = None
         self.configuration.neo_fin_key = neo_fin_key
         self.configuration.consumer_key = consumer_key
-        print(self.configuration.__dict__)
 
     def place_order(
             self,
@@ -717,7 +716,7 @@ class NeoAPI:
         """
         if self.configuration.edit_token and self.configuration.edit_sid:
             try:
-                log_off = neo_api_client.LogoutAPI(self.api_client).logging_out()
+                # log_off = neo_api_client.LogoutAPI(self.api_client).logging_out()
                 self.configuration.bearer_token = None
                 self.configuration.edit_sid = None
                 self.configuration.edit_token = None
