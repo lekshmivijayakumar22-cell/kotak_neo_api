@@ -14,7 +14,8 @@ class TotpAPI(object):
 
     def totp_login(self, mobile_number=None, ucc=None, totp=None):
         header_params = {'Authorization': self.api_client.configuration.consumer_key,
-                         'neo-fin-key': self.api_client.configuration.get_neo_fin_key()
+                         'neo-fin-key': self.api_client.configuration.get_neo_fin_key(),
+                         'Content-Type': 'application/json'
                          }
         URL = self.api_client.configuration.get_domain(session_init=True) + '/' + PROD_URL.get('totp_login')
         body_params = {
@@ -22,6 +23,9 @@ class TotpAPI(object):
             "ucc": ucc,
             "totp": totp
         }
+        print('header_params----->', header_params)
+        print('body_params----->', body_params)
+        print('URL----->', URL)
         totp_login = self.rest_client.request(
             url=URL, method='POST',
             headers=header_params,
