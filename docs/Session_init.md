@@ -10,13 +10,11 @@ client = NeoAPI(consumer_key="", consumer_secret="", environment='prod', access_
 
 ```python
 from neo_api_client import NeoAPI
-from neo_api_client import BaseUrl
 
-base_url = BaseUrl(ucc='').get_base_url()
 
 #the session initializes when the following constructor is called
 # Either you pass consumer_key and consumer_secret or you pass acsess_token 
-client = NeoAPI(consumer_key="", consumer_secret="", environment='prod', access_token=None, neo_fin_key=None, base_url=base_url)
+client = NeoAPI(environment='prod', access_token=None, neo_fin_key=None)
 ```
 ### Parameters
 

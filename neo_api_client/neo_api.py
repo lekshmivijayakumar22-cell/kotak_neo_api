@@ -800,7 +800,6 @@ class NeoAPI:
             return error
 
         totp_validate = neo_api_client.TotpAPI(self.api_client).totp_validate(mpin=mpin)
-        print(self.configuration.__dict__)
         return totp_validate
 
     def quotes(self, instrument_tokens=None, quote_type=None):
