@@ -47,17 +47,14 @@ Please follow the [installation procedure](#installation--usage) and then refer 
 
 ```python
 from neo_api_client import NeoAPI
-from neo_api_client import BaseUrl
 
-# ucc: Unique Client Code which you will find in mobile application/website under profile section
-base_url = BaseUrl(ucc='').get_base_url()
 
 # Either you pass consumer_key and consumer_secret or you pass acsess_token 
 # access_token: It is optional. If you have barrier token then pass and consumer_key and consumer_secret will be optional.
 # environment: By default it's uat. You can pass prod to connect to live server
 # neo_fin_key: Key you recieve at the time of api registration on your registered email id
 # base_url: You'll get by calling base_url api
-client = NeoAPI(consumer_key="", consumer_secret="", environment='prod', access_token=None, neo_fin_key=None, base_url=base_url)
+client = NeoAPI(environment='prod', access_token=None, neo_fin_key=None)
 
 
 # Login using TOTP
