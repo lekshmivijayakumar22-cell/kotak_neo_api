@@ -1,11 +1,11 @@
 # Kotak Neo Python SDK Development
 
-- API version: 1.0.1
-- Package version: 2.0.0
+- API version: 2.0.0
+- Package version: v2.0.0
 
 ## Requirements.
 
-Python 3.10+
+Python 3.10 to 3.13
 
 ## Installation & Usage
 ### pip install
@@ -13,12 +13,13 @@ Python 3.10+
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install "git+https://github.com/Kotak-Neo/Kotak-neo-api-v2.git#egg=neo_api_client"
+pip install "git+https://github.com/Kotak-Neo/Kotak-neo-api-v2.git@v2.0.0#egg=neo_api_client"
 ```
+NOTE: For switching the version, try .git@[version number] in the above URL example .git@v1.0.0
 
 If you are updating your package please use below command to install
 ```sh
-pip install --force-reinstall "git+https://github.com/Kotak-Neo/Kotak-neo-api-v2"
+pip install --force-reinstall "git+https://github.com/Kotak-Neo/Kotak-neo-api-v2.git@v2.0.0#egg=neo_api_client"
 ```
 (you may need to run `pip` with root permission: `sudo pip install -e "`)
 
@@ -49,12 +50,15 @@ Please follow the [installation procedure](#installation--usage) and then refer 
 from neo_api_client import NeoAPI
 
 
-# Either you pass consumer_key and consumer_secret or you pass acsess_token 
-# access_token: It is optional. If you have barrier token then pass and consumer_key and consumer_secret will be optional.
-# environment: By default it's uat. You can pass prod to connect to live server
-# neo_fin_key: Key you recieve at the time of api registration on your registered email id
-# base_url: You'll get by calling base_url api
-client = NeoAPI(environment='prod', access_token=None, neo_fin_key=None)
+ 
+# access_token: It is optional. 
+# environment: You pass prod to connect to live server
+# neo_fin_key: It is optional. Pass None.
+# consumer_key: this is the token that is available on your NEO app or website.
+# To get consumer key, login to kotak NEO app or web -> invest tab -> trade api card. Generate application.
+# with default application, you will have a copyable token. Pass this token in consumer_key.
+
+client = NeoAPI(environment='prod', access_token=None, neo_fin_key=None, consumer_key='YOUR_TOKEN')
 
 
 # Login using TOTP
@@ -88,17 +92,6 @@ client.totp_login(mobile_number="", ucc="", totp='')
 # totp_validate generates the trade token
 client.totp_validate(mpin="")
 
-
-# Alternate Login Method - Login using QR code (User can either login with TOTP or with QR flow)
-
-# ucc: Unique Client Code which you will find in mobile application/website under profile section
-# qr_code_get_link returns a qrcode
-client.qr_code_get_link(ucc='')
-
-# ott: You will recieve ott by scanning qr code through kotak's application 
-# ucc: Unique Client Code which you will find in mobile application/website under profile section
-# trade token is generated on passing ott to qr_code_generate_session 
-client.qr_code_generate_session(ott='', ucc='')
 
 
 # Once you have session token after completing 2FA, you can place the order by using below function
@@ -320,12 +313,9 @@ client.logout()
 
 | Class                  | Method                                                                                     | Description              |
 |------------------------|--------------------------------------------------------------------------------------------|--------------------------|
-| *Base Url*             | [**neo_api_client.BaseUrl**](docs/Base_url.md#base_url)                                    | Base Url                 |
-| *LoginAPI*             | [**neo_api_client.SessionINIT**](docs/Session_init.md#session_init)                        | Initialise Session       |
+| *Session Initiation*   | [**neo_api_client.SessionINIT**](docs/Session_init.md#session_init)                        | Initialise Session       |
 | *TOTP LoginAPI*        | [**neo_api_client.Totp_login**](docs/Totp_login.md#totp_login)                             | TOTP Login               |
 | *TOTP LoginAPI*        | [**neo_api_client.Totp_validation**](docs/Totp_validate.md#totp_validate)                  | TOTP Validation          |
-| *QR Code LoginAPI*     | [**neo_api_client.Qr_code_link**](docs/Qr_code_link.md#qr_code_link)                       | QR Code Get Link         |
-| *QR Code LoginAPI*     | [**neo_api_client.Qr_code_session**](docs/Qr_code_session.md#qr_code_session)              | QR Code Generate Session |
 | *Place Order*          | [**neo_api_client.placeorder**](docs/Place_Order.md#place_order)                           | Place Order              |
 | *Modify Order*         | [**neo_api_client.modifyorder**](docs/Modify_Order.md#modify_order)                        | Modify Order             |
 | *Cancel Order*         | [**neo_api_client.cancelorder**](docs/Cancel_Order.md#cancel_order)                        | Cancel Order             |

@@ -2,7 +2,7 @@
 Initiate trading session for a User
 
 ```python
-client = NeoAPI(consumer_key="", consumer_secret="", environment='prod', access_token=None, neo_fin_key=None, base_url=base_url)
+client = NeoAPI(environment='prod', access_token=None, neo_fin_key=None)
 
 ```
 
@@ -20,12 +20,9 @@ client = NeoAPI(environment='prod', access_token=None, neo_fin_key=None)
 
 | Name                   | Description                                                   | Type           |
 |------------------------|---------------------------------------------------------------|----------------|
-| *consumer_key*         | Mandatory if not passing access token                         | Str [optional] |
-| *consumer_secret*      | Mandatory if not passing access token                         | Str [optional] |
 | *access_token*         | Mandatory if not passing consumer key and secret              | Str [optional] |
 | *environment*          | UAT/PROD, Default Value = "UAT"                               | Str [optional] |
 | *neo_fin_key*          | Default Value = "neotradeapi"                                 | Str [optional] |
-| *base_url*             | Mandatory field. Its fetched from base url api by passing ucc | Str [optional] |
 
 
 ## Return type
