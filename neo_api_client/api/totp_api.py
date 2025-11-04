@@ -23,9 +23,6 @@ class TotpAPI(object):
             "ucc": ucc,
             "totp": totp
         }
-        print('header_params----->', header_params)
-        print('body_params----->', body_params)
-        print('URL----->', URL)
         totp_login = self.rest_client.request(
             url=URL, method='POST',
             headers=header_params,
