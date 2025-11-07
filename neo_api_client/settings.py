@@ -77,10 +77,10 @@ PROD_URL = {
 }
 
 exchange_segment_allowed_values = ["NSE", "nse", "BSE", "bse", "NFO", "nfo", "BFO", "bfo", "CDS", "cds", "BCD", "bcd",
-                                   "nse_cm", "bse_cm", "nse_fo", "bse_fo", "cde_fo", "bcs-fo"]
+                                   "nse_cm", "bse_cm", "nse_fo", "bse_fo", "cde_fo", "bcs-fo", "mcx_fo"]
 
 product_allowed_values = ["NRML", "CNC", "MIS", "INTRADAY", "CO", "BO", "Normal", "Cash and Carry", "Cover Order",
-                          "Bracket Order"]
+                          "Bracket Order", "MTF"]
 
 order_type_allowed_values = ["Limit", "Market", "Stop loss limit", "Stop loss market", "Spread", "Two Leg", "Three leg",
                              "L", "MKT", "SL", "SL-M", "SP", "2L", "3L"]
@@ -88,11 +88,12 @@ order_type_allowed_values = ["Limit", "Market", "Stop loss limit", "Stop loss ma
 exchange_segment = {"nse_cm": "nse_cm", "NSE": "nse_cm", "nse": "nse_cm", "BSE": "bse_cm", "bse": "bse_cm",
                     "bse_cm": "bse_cm", "NFO": "nse_fo", "nse_fo": "nse_fo", "nfo": "nse_fo", "BFO": "bse_fo",
                     "bse_fo": "bse_fo", "bfo": "bse_fo", "CDS": "cde_fo", "cde_fo": "cde_fo", "cds": "cde_fo",
-                    "BCD": "bcs-fo", "bcs-fo": "bcs-fo", "bcd": "bcs-fo",  "MCX": "mcx", "mcx": "mcx", "mcx_fo": "mcx"}
+                    "BCD": "bcs-fo", "bcs-fo": "bcs-fo", "bcd": "bcs-fo",  "MCX": "mcx_fo", "mcx": "mcx_fo",
+                    "mcx_fo": "mcx_fo"}
 
 product = {"Normal": "NRML", "NRML": "NRML", "CNC": "CNC", "cnc": "CNC", "Cash and Carry": "CNC", "MIS": "MIS",
            "mis": "MIS", "INTRADAY": "INTRADAY", "intraday": "INTRADAY", "Cover Order": "CO", "co": "CO",
-           "CO": "CO", "BO": "BO", "Bracket Order": "BO", "bo": "BO"}
+           "CO": "CO", "BO": "BO", "Bracket Order": "BO", "bo": "BO", "mtf": "MTF", "MTF": "MTF"}
 
 order_type = {"Limit": "L", "L": "L", "l": "L", "MKT": "MKT", "mkt": "MKT", "Market": "MKT", "sl": "SL", "SL": "SL",
               "Stop loss limit": "SL", "Stop loss market": "SL-M", "SL-M": "SL-M", "sl-m": "SL-M", "Spread": "SP",
