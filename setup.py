@@ -6,9 +6,24 @@ VERSION = "2.0.0"
 #
 # python setup.py install
 
-REQUIRES = ['bidict==0.22.1', 'certifi==2022.12.7', 'idna==2.10', 'numpy==2.1.0', 'pyjsparser==2.7.1', 'PyJWT==2.6.0',
-            'python-dateutil==2.8.2', 'python-dotenv==1.0.0', 'requests==2.32.3', 'six==1.16.0', 'urllib3==1.26.14',
-            'websocket-client==1.8.0', 'websockets==8.1', 'pandas==2.2.3', 'asyncio==3.4.3']
+
+REQUIRES = [
+    "bidict==0.23.1",
+    "certifi==2025.10.5",
+    "idna==3.11",
+    "numpy==2.3.4",
+    "pyjsparser==2.7.1",
+    "PyJWT==2.10.1",
+    "python-dateutil==2.9.0.post0",
+    "python-dotenv==1.0.0",
+    "requests==2.32.5",
+    "six==1.17.0",
+    "urllib3==2.5.0",
+    "websocket-client==1.9.0",
+    "websockets==15.0.1",
+    "pandas==2.3.3",
+    "asyncio==4.0.0",
+]
 
 setup(
     name=NAME,
@@ -22,5 +37,5 @@ setup(
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     long_description="""\
-    """
+    """,
 )
