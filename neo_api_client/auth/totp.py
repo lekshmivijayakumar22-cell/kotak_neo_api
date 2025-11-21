@@ -21,7 +21,6 @@ class TotpAPI(object):
             + "/"
             + PROD_URL.get("totp_login")
         )
-        print('URL-------------------->', URL)
         body_params = {"mobileNumber": mobile_number, "ucc": ucc, "totp": totp}
         totp_login = self.rest_client.request(
             url=URL, method="POST", headers=header_params, body=body_params
