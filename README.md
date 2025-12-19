@@ -5,7 +5,7 @@
 
 ## Requirements.
 
-Python 3.10 to 3.13
+Python 3.11 to 3.13
 
 ## Installation & Usage
 ### pip install
@@ -13,13 +13,13 @@ Python 3.10 to 3.13
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install "git+https://github.com/Kotak-Neo/Kotak-neo-api-v2.git@v2.0.1#egg=neo_api_client"
+pip install "git+https://github.com/Kotak-Neo/Kotak-neo-api-v2.git@v2.0.2#egg=neo_api_client"
 ```
 NOTE: For switching the version, try .git@[version number] in the above URL example .git@v1.0.0
 
 If you are updating your package please use below command to install
 ```sh
-pip install --force-reinstall "git+https://github.com/Kotak-Neo/Kotak-neo-api-v2.git@v2.0.1#egg=neo_api_client"
+pip install --force-reinstall "git+https://github.com/Kotak-Neo/Kotak-neo-api-v2.git@v2.0.2#egg=neo_api_client"
 ```
 (you may need to run `pip` with root permission: `sudo pip install -e "`)
 
@@ -49,16 +49,13 @@ Please follow the [installation procedure](#installation--usage) and then refer 
 ```python
 from neo_api_client import NeoAPI
 
-
- 
-# access_token: It is optional. 
 # environment: You pass prod to connect to live server
 # neo_fin_key: It is optional. Pass None.
 # consumer_key: this is the token that is available on your NEO app or website.
 # To get consumer key, login to kotak NEO app or web -> invest tab -> trade api card. Generate application.
 # with default application, you will have a copyable token. Pass this token in consumer_key.
 
-client = NeoAPI(environment='prod', access_token=None, neo_fin_key=None, consumer_key='YOUR_TOKEN')
+client = NeoAPI(environment='prod', neo_fin_key=None, consumer_key='YOUR_TOKEN')
 
 
 # Login using TOTP
@@ -293,7 +290,7 @@ client.on_open = on_open  # called when websocket successfully connects
 # isDepth: If you want to subscribe to depth data, set isDepth to True
 client.subscribe(instrument_tokens = instrument_tokens, isIndex=False, isDepth=False)
 
-# Un_Subscribes the given tokens. First the tokens will be checked weather that is subscribed. If not Subscribed we will send you the error message else we will unsubscribe the give tokens
+# Unsubscribes the given tokens. First the tokens will be checked weather that is subscribed. If not Subscribed we will send you the error message else we will unsubscribe the give tokens
 # instrument_tokens: This is a list of dictionaries.
     # instrument_token: The instrument token of the stock
     # exchange_segment: Expected values are nse_cm, bse_cm, nse_fo, bse_fo, cde_fo, mcx_fo
@@ -304,6 +301,10 @@ client.un_subscribe(instrument_tokens=instrument_tokens, isIndex=False, isDepth=
 #Order Feed 
 # This function subscribes to order feed
 client.subscribe_to_orderfeed()
+
+#Unsubscribe Order Feed 
+# This function unsubscribes to order feed
+client.unsubscribe_orderfeed()
 
 #Terminate user's Session
 client.logout()
